@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+
+<select ng-model="serie">
+	<option>  1 serie </option>
+	<option> 2 serie</option>
+	<option> 3 serie </option>
+</select>
+
+
+
+</body>
+</html>
