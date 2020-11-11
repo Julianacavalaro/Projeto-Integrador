@@ -1,0 +1,32 @@
+package com.deveducation.aspas.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="tb_usuario")
+public class UsuarioModel {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id_usuario;
+	
+	@Column
+	@NotEmpty(message = "Digite o nome completo")
+	private String nome_completo;
+	
+	@Column
+	@NotEmpty(message = "Digite o email do usuario")
+	private String email_usuario;
+	
+	@Column
+	@NotEmpty(message = "Digite a senha")
+	private String senha_usuario;
+
+}

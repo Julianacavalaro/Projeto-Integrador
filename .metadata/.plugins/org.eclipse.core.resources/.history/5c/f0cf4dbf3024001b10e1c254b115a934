@@ -1,0 +1,23 @@
+package com.deveducation.aspas.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+@Entity
+@Table(name="tb_postagem")
+public class PostagemModel {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id_postagem;
+	
+	@Column
+	@NotEmpty(message = "Digite o titulo da postagem")
+	private String titulo;
+
+}

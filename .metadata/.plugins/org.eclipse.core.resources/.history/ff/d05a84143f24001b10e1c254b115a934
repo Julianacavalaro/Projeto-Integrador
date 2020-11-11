@@ -1,0 +1,15 @@
+package com.deveducation.aspas.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+
+import com.deveducation.aspas.model.TemaModel;
+
+public interface TemaRepository extends JpaRepositoryImplementation<TemaModel, Long>{
+
+	Optional<TemaModel> findByMateriaAndSubmateria(String materia, String submateria);
+
+	Optional<TemaModel> findByMateriaContainingIgnoreCase(String materia);
+	
+}

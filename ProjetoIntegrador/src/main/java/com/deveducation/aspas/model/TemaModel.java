@@ -1,12 +1,18 @@
 package com.deveducation.aspas.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="tb_tema")
@@ -26,7 +32,20 @@ public class TemaModel {
 	
 	@Column
 	@NotNull
-	private int serie;
+	private String serie;
+	
+	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("tema")
+	private List<PostagemModel> postagem;
+	
+
+	public List<PostagemModel> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<PostagemModel> postagem) {
+		this.postagem = postagem;
+	}
 
 	public Long getId_tema() {
 		return id_tema;
@@ -52,15 +71,14 @@ public class TemaModel {
 		this.submateria = submateria;
 	}
 
-	public int getSerie() {
+	public String getSerie() {
 		return serie;
 	}
 
-	public void setSerie(int serie) {
+	public void setSerie(String serie) {
 		this.serie = serie;
 	}
 	
 	
 	
-
 }
